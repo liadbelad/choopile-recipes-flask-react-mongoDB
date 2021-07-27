@@ -1,0 +1,23 @@
+@import "../../scss/styles.scss";
+
+.pagination-container {
+  margin-top: 3rem;
+  display: flex;
+  justify-content: center;
+
+  & .pagination li span {
+    background-color: $primary-color !important;
+    border-color: transparent !important;
+  }
+
+  & a {
+    color: $primary-color !important;
+    border: 0.5px solid #ccc;
+  }
+}
+
+@media #{$media-tablet} {
+  .pagination-container {
+    margin-top: 1rem;
+  }
+}

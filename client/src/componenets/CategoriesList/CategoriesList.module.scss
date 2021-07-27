@@ -1,0 +1,9 @@
+@import "../../scss/styles.scss";
+
+.category-item {
+  cursor: pointer;
+
+  &:hover {
+    background-color: $primary-color;
+  }
+}

@@ -1,0 +1,21 @@
+@import "../../scss/styles.scss";
+
+.header {
+  position: relative;
+
+  & h2 {
+    color: $primary-color;
+  }
+}
+
+.close-btn {
+  position: absolute;
+  top: -18px;
+  right: 5px;
+  font-size: 2rem;
+  color: #000;
+
+  &:hover {
+    color: $primary-color;
+  }
+}

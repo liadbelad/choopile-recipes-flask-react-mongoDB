@@ -1,0 +1,64 @@
+@import "../../../../scss/styles.scss";
+
+.recipe-container {
+  position: relative;
+  width: 100%;
+  margin: 4rem 0;
+}
+
+.image {
+  transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg)
+    rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+  background-position: center;
+  background-size: cover;
+  object-fit: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  margin: 0 auto;
+  height: 450px;
+  box-shadow: 0 3px 30px rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+}
+
+.recipe-header {
+  display: flex;
+
+  & p .fas.fa-eye {
+    color: $primary-color;
+    color: rgb(239, 66, 41);
+  }
+}
+
+.recipe-content {
+  display: flex;
+  flex-direction: column;
+  width: 75%;
+  background: #fff;
+  color: #000;
+  position: absolute;
+  top: 70%;
+  left: 15%;
+  font-size: 0.7rem;
+  z-index: 2;
+  border-radius: 10px;
+}
+
+@media #{$media-tablet} {
+  .recipe-container {
+    margin: 4rem 0;
+
+    & .image {
+      width: 70%;
+    }
+
+    & .recipe-content {
+      width: 50%;
+      left: 25%;
+    }
+
+    & .recipe-description,
+    & .recipe-header {
+      font-size: 1rem;
+    }
+  }
+}

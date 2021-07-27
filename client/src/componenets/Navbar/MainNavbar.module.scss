@@ -1,0 +1,31 @@
+@import "../../scss/styles.scss";
+.navbar-container {
+  -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+}
+.brand {
+  font-weight: bold;
+  font-size: 1.4rem;
+  color: $primary-color !important;
+}
+
+.social-links {
+  display: none;
+
+  & i {
+    color: $primary-color;
+    font-size: 1.5rem;
+    transition: all 0.4s ease-in;
+
+    &:hover {
+      color: rgb(133, 24, 7);
+    }
+  }
+}
+
+@media #{$media-tablet} {
+  .social-links {
+    display: flex;
+    margin: 0 2rem;
+  }
+}

@@ -1,0 +1,10 @@
+.add-comment-container {
+  position: relative;
+  width: 100%;
+
+  & .add-btn {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+  }
+}

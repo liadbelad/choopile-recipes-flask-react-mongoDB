@@ -1,0 +1,25 @@
+@import "../../../scss/styles.scss";
+
+.grid-container {
+  display: grid;
+  gap: 1rem;
+}
+
+.flex-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2rem;
+  margin: 2rem 0;
+}
+
+@media #{$media-tablet} {
+  .grid-container {
+    grid-template-columns: repeat(auto-fill, minmax(205px, 1fr));
+
+    & img {
+      height: 140px;
+    }
+  }
+}

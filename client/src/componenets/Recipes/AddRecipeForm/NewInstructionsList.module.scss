@@ -1,0 +1,12 @@
+.listgroup-item {
+  display: flex;
+  justify-content: start;
+
+  & div,
+  p {
+    flex-grow: 1;
+    padding: 0;
+    margin: 0;
+    font-weight: bold;
+  }
+}

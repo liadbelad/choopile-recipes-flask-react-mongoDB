@@ -1,0 +1,12 @@
+@import "../../scss/styles.scss";
+
+.errors-container {
+  height: 10px;
+  font-size: 0.71rem;
+}
+
+@media #{$media-tablet} {
+  .errors-container {
+    font-size: 0.9rem;
+  }
+}

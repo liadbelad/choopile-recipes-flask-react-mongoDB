@@ -1,0 +1,90 @@
+process.env.PORT = 3100
+
+const http = require("http"),
+  fs = require("fs"),
+  url = require("url")
+
+http
+  .createServer(async (request, response) => {
+    const content = fs.readFileSync("./files/customers.json")
+    const customers = JSON.parse(content)
+
+    if (request.url === "/") {
+      response.writeHead(200, { "content-type": "text/html" })
+      response.end(
+        '<h1>Ahalan</h1> You can fetch some json by navigating to <a href="/json">/json</a>'
+      )
+    } else if (request.url === "/json") {
+      //Here you need to read customers and send it to the client
+      //const content = <read the file>
+      const content = fs.readFileSync("./files/customers.json")
+
+      //if you need actual objects, then parse the content:
+      //const customers = <parse the json>
+      //   const customers = JSON.parse(content)
+      //   (customers)
+
+      response.writeHead(200, { "content-type": "application/json" })
+      response.end(content /* or parsed customers as json string! */)
+    } else if (request.url.includes("/saints")) {
+      const { isSaint: queryIsSaint } = url.parse(request.url, true).query
+      if (!queryIsSaint) {
+        const saints = customers.filter(({ occupation }) => occupation.isSaint)
+        response.writeHead(200, { "content-type": "application/json" })
+        response.end(
+          JSON.stringify(saints) /* or parsed customers as json string! */
+        )
+      }
+      const booleanQueryIsSaint = JSON.parse(queryIsSaint)
+      const saintsOrNot = customers.filter(
+        ({ occupation }) => occupation.isSaint === booleanQueryIsSaint
+      )
+      response.writeHead(200, { "content-type": "application/json" })
+      response.end(
+        JSON.stringify(saintsOrNot) /* or parsed customers as json string! */
+      )
+    } else if (request.url === "/short-desc") {
+      const customerNameAndOcc = customers.map(({ name, occupation }) => ({
+        name,
+        occupation,
+      }))
+      customerNameAndOccTableData = customerNameAndOcc
+        .map(
+          ({ name, occupation }) => `
+        <tr>
+            <td>${name}</td>
+            <td>${JSON.stringify(occupation)}</td> 
+        </tr>
+        `
+        )
+        .join("")
+      response.writeHead(200, { "content-type": "text/html" })
+      response.end(
+        `<table style="width:100%;text-align:center"> 
+                <tr>
+                    <th>Name</th>
+                    <th>Occupation</th> 
+                </tr>
+                ${customerNameAndOccTableData}
+          </table>`
+      )
+    } else if (request.url.includes("/who?name=")) {
+      const { name } = url.parse(request.url, true).query
+      const requestedCustomer = customers.find(
+        (customer) => customer.name.toLowerCase() === name.toLowerCase()
+      )
+      if (!requestedCustomer) {
+        response.end(`
+          <p> ${name} is not a customer </p>
+          `)
+      }
+      response.writeHead(200, { "content-type": "application/json" })
+      response.end(JSON.stringify(requestedCustomer))
+    }
+  })
+  .listen(process.env.PORT, () => {
+    (`Listening on port ${process.env.PORT}`)
+    (
+      `go to localhost:${process.env.PORT} or localhost:${process.env.PORT}/json`
+    )
+  })
