@@ -20,7 +20,7 @@ const SearchResults = ({ md, lg, enteredKeyword }) => {
     setIsFinishedSearch(false)
     const debounceTimer = setTimeout(async () => {
       setIsLoading(true)
-      const recipes = await getRecipesBySearchTerm(enteredKeyword)
+      const { recipes } = await getRecipesBySearchTerm(enteredKeyword)
       setSearchRecipesResults(recipes)
       setIsFinishedSearch(true)
 
@@ -48,8 +48,8 @@ const SearchResults = ({ md, lg, enteredKeyword }) => {
         isFinishedSearch && <p> אין תוצאות </p>}
       {searchRecipesResults &&
         searchRecipesResults.map((recipe) => (
-          <p key={recipe.id}>
-            <Link className="my-1 text-dark" to={`/recipes/${recipe.id}`}>
+          <p key={recipe._id}>
+            <Link className="my-1 text-dark" to={`/recipes/${recipe._id.$oid}`}>
               {recipe.title}
             </Link>
           </p>

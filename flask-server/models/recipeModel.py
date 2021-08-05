@@ -1,7 +1,6 @@
-from typing_extensions import Required
 from mongoengine import document
 from mongoengine.fields import BooleanField, DateTimeField, DictField, IntField, ListField, ReferenceField, StringField
-from userModel import User
+from models.userModel import User
 import datetime
 
 
@@ -21,6 +20,6 @@ class Recipe(document):
     mainImageUrl = StringField(Required=True)
     isPrivate = BooleanField(Required=True, default=False)
     instructions = ListField(Required=True)
-    comments = ListField(ReferenceField(Comment))
+    comments = ListField()
     ingredientsByTitle = ListField(DictField())
     categories = ListField()

@@ -38,10 +38,8 @@ const HomePage = () => {
   const getNextNewestRecipes = async () => {
     setIsLoadingMoreRecipes(true)
     const nextPageRecipes = await getNewestRecipes(activePageNumber)
-    setTimeout(() => {
-      setNewestRecipes((prevRecipes) => [...prevRecipes, ...nextPageRecipes])
-      setIsLoadingMoreRecipes(false)
-    }, 500)
+    setNewestRecipes((prevRecipes) => [...prevRecipes, ...nextPageRecipes])
+    setIsLoadingMoreRecipes(false)
   }
 
   useEffect(() => {
@@ -81,7 +79,6 @@ const HomePage = () => {
       <Menu />
       <Header />
 
-      {status === "pending" && <Loader />}
       {error && <Message> {error} </Message>}
       {status === "completed" &&
         (!loadedRecipes || loadedRecipes.length === 0) && <NoRecipesFound />}

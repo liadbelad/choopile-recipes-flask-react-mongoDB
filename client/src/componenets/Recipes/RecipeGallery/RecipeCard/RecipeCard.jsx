@@ -6,7 +6,8 @@ import Aos from "aos"
 import "aos/dist/aos.css"
 
 const RecipeCard = ({ recipe }) => {
-  const { id, title, description, views, createdAt, mainImageUrl } = recipe
+  const { _id, title, description, views, createdAt, mainImageUrl } = recipe
+  const id = _id.$oid
 
   const date = createdAt.toLocaleString().slice(0, 10).replaceAll(".", "/")
 
@@ -24,7 +25,7 @@ const RecipeCard = ({ recipe }) => {
       onClick={handleViewsIncrement}
       className={`${styles["recipe-container"]}`}
     >
-      <Link to={`/recipes/${id}`}>
+      <Link to={`/recipes/${id.toString()}`}>
         <div
           style={{
             backgroundImage: `url(http://localhost:5000/images/${mainImageUrl})`,

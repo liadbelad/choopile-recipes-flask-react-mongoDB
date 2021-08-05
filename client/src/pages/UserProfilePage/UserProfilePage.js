@@ -40,7 +40,7 @@ const UserProfilePage = () => {
     }
 
     setError(null)
-    handleUserDetailsUpdate(updatedUser[0].firstName)
+    handleUserDetailsUpdate(updatedUser.firstName)
     setSuccess("פרטייך נשמרו במערכת,מיד תעבור לעמוד הבית")
 
     setTimeout(() => {

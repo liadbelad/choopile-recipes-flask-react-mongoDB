@@ -25,7 +25,7 @@ const SingleRecipePage = () => {
   const { id } = useParams()
 
   useEffect(() => {
-    sendRequest(+id)
+    sendRequest(id)
   }, [id, sendRequest])
 
   useEffect(() => {
@@ -40,7 +40,7 @@ const SingleRecipePage = () => {
     )
   }
 
-  if (!+id || !recipe?.id) {
+  if (!id || !recipe?.id) {
     return <ErrorPage />
   }
 

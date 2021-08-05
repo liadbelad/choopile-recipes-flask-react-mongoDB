@@ -404,3 +404,168 @@ recipesData = [
         "mainImageUrl": "b0ccba23-d0a2-405b-bba0-88072a3e3920.jpeg"
     }
 ]
+
+
+singleRecipeData = {
+    "id": 4,
+    "userId": 1,
+    "title": "מתכון של עוגת שוקולד בחושה עם קפה ממכרת ב-10 דקות !",
+    "description": "האורחים בדלת ואין לכם עוגה? עוגת שוקולד וקפה, כזו שילדים אוהבים ומבוגרים ממש לא אומרים לה לא. מתכון שמכינים ב-10 דקות, יש לה טעם מושקע בזכות הנס קפה שבתוכה",
+    "servings": 1,
+    "prepTimeMins": 15,
+    "mainImageUrl": "1ce93911-5bcf-4011-8ddd-8bb4abaa4fcc.jpeg",
+    "views": 29,
+    "createdAt": "2021-07-14T20:14:27.000Z",
+    "images": [
+        {
+            "url": "1ce93911-5bcf-4011-8ddd-8bb4abaa4fcc.jpeg"
+        }
+    ],
+    "comments": [],
+    "instructions": [
+        {
+            "id": 80,
+            "instruction": "בקערה גדולה מערבבים את כל חומרי העוגה."
+        },
+        {
+            "id": 81,
+            "instruction": "מחממים תנור ל-180 מעלות."
+        },
+        {
+            "id": 82,
+            "instruction": "משמנים תבנית אפיה עגולה (מספר 26) או תבנית קוגלהוף (כמו בתמונה). שופכים את בלילת העוגה ואופים 30 דקות."
+        },
+        {
+            "id": 83,
+            "instruction": "כאשר העוגה יוצאת מהתנור שופכים עליה חצי כוס נס קפה שמכינים מכף קפה נמס וחצי כוס מים חמים). אם יש לכם מכונת קפה, מכינים אספרסו ושופכים, זה ממש משדרג את העוגה."
+        },
+        {
+            "id": 84,
+            "instruction": "מכינים את הציפוי: באמבט בן מרי ממיסים את השוקולד כאשר נמס מערבבים לתוכו את 1/2 השמנת שנותרה. שופכים על העוגה. אפשר לקשט את העוגה בסוכריות, אגוזים או פולי קפה טחונים."
+        }
+    ],
+    "ingredientsByTitle": [
+        {
+            "title": "עוגה",
+            "ingredients": [
+                {
+                    "ingredient": {
+                        "label": "קמח",
+                        "value": 7
+                    },
+                    "measureUnit": {
+                        "value": 6,
+                        "label": "כוס"
+                    },
+                    "amount": "1",
+                    "note": "תופח"
+                },
+                {
+                    "ingredient": {
+                        "label": "סוכר",
+                        "value": 6
+                    },
+                    "amount": "1",
+                    "measureUnit": {
+                        "value": 6,
+                        "label": "כוס"
+                    },
+                    "note": ""
+                },
+                {
+                    "ingredient": {
+                        "label": "שוקולית",
+                        "value": 13
+                    },
+                    "amount": "1",
+                    "measureUnit": {
+                        "value": 6,
+                        "label": "כוס"
+                    },
+                    "note": ""
+                },
+                {
+                    "ingredient": {
+                        "label": "קפה נמס",
+                        "value": 16
+                    },
+                    "amount": "1",
+                    "measureUnit": {
+                        "value": 4,
+                        "label": "כף"
+                    },
+                    "note": "אבקה, לא קפה מגורען"
+                },
+                {
+                    "ingredient": {
+                        "label": "שמן קנולה",
+                        "value": 14
+                    },
+                    "amount": "1",
+                    "measureUnit": {
+                        "value": 6,
+                        "label": "כוס"
+                    },
+                    "note": "או שמן סויה/חמניות"
+                },
+                {
+                    "ingredient": {
+                        "label": "ביצים",
+                        "value": 5
+                    },
+                    "amount": "4",
+                    "measureUnit": {
+                        "value": 12,
+                        "label": "יחידות"
+                    },
+                    "note": "גודל L"
+                },
+                {
+                    "ingredient": {
+                        "label": "שמנת מתוקה",
+                        "value": 17
+                    },
+                    "amount": "125",
+                    "measureUnit": {
+                        "value": 10,
+                        "label": "מיליליטר"
+                    },
+                    "note": "38 אחוז"
+                },
+                {
+                    "ingredient": {
+                        "label": "תמצית וניל",
+                        "value": 18
+                    },
+                    "amount": "1",
+                    "measureUnit": {
+                        "value": 5,
+                        "label": "כפית"
+                    },
+                    "note": ""
+                }
+            ]
+        },
+        {
+            "title": "קרם ציפוי",
+            "ingredients": [
+                {
+                    "ingredient": {
+                        "label": "שוקולד מריר",
+                        "value": 19
+                    },
+                    "measureUnit": {
+                        "value": 2,
+                        "label": "גרם"
+                    },
+                    "amount": "100",
+                    "note": ""
+                }
+            ]
+        }
+    ],
+    "categories": {
+        "value": 6,
+        "label": "חלבי"
+    }
+}

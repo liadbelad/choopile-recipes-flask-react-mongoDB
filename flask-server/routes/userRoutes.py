@@ -6,7 +6,8 @@ from flask_cors import cross_origin
 from pymongo import MongoClient
 from werkzeug.security import check_password_hash, generate_password_hash
 
-client = MongoClient('mongodb://localhost:27017/')
+client = MongoClient(
+    'mongodb+srv://liadb13:n9A3wDlExLxzYqtx@cluster0.b64x1.mongodb.net/choopile?retryWrites=true&w=majority')
 db = client.choopile
 
 user = Blueprint('user', __name__, url_prefix='/api/users')

@@ -4,8 +4,9 @@ axios.defaults.withCredentials = true
 const config = {
   headers: {
     "Content-Type": "application/json",
+    "Access-Control-Allow-Credentials": true,
   },
-  withCredentials: true,
+  // withCredentials: true,
 }
 
 const DUMMY_USERS = [
@@ -107,7 +108,6 @@ const getUserRecipes = async ({
       `http://localhost:5000/api/recipes/users?pageNumber=${pageNumber}&category=${categoryID} `,
       config
     )
-
     return userRecipes
   } catch (error) {
     return error.message
@@ -132,11 +132,12 @@ const getAllCategories = async () => {
     const response = await fetch(`http://localhost:5000/api/categories`)
     const categories = await response.json()
 
-    const transformedCategories = categories.map((category) => ({
-      value: category.id,
-      label: category.label,
-    }))
-    return transformedCategories
+    // const transformedCategories = categories.map((category) => ({
+    //   value: category.id,
+    //   label: category.label,
+    // }))
+    // return transformedCategories
+    return categories
   } catch (error) {
     return error.message
   }

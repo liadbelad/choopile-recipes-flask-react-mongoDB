@@ -4,11 +4,11 @@ import Comment from "./Comment/Comment"
 const CommentList = ({ comments = [] }) => {
   return (
     <>
-      {comments.map(({ id, content, firstName, lastName, createdAt }) => {
+      {comments.map(({ content, firstName, lastName, createdAt }) => {
         const fullName = `${firstName} ${lastName}`
         return (
           <Comment
-            key={id}
+            key={createdAt}
             author={fullName}
             createdAt={createdAt}
             content={content}

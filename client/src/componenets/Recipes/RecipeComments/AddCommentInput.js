@@ -29,6 +29,7 @@ const AddCommentInput = ({ handleShowNewCommentList }) => {
   if (status === "error") return <Message> {error} </Message>
 
   if (status === "completed" && data) {
+    console.log(data.comments)
     handleShowNewCommentList(data.comments)
     return <Message variant="success"> {data.msg} </Message>
   }

@@ -3,16 +3,18 @@ import axios from "axios"
 const config = {
   headers: {
     "Content-Type": "application/json",
+    "Access-Control-Allow-Credentials": true,
   },
-  withCredentials: true,
+  // withCredentials: true,
 }
 
 const getNewestRecipes = async (pageNumber = 1) => {
   try {
     const response = await fetch(
-      `http://localhost:8000/api/recipes/newest?pageNumber=${pageNumber}`
+      `http://localhost:5000/api/recipes/newest?pageNumber=${pageNumber}`
     )
     const newestRecipes = await response.json()
+
     return newestRecipes
   } catch (error) {
     return error.message
@@ -86,12 +88,11 @@ const updateRecipeViewsById = async (recipeID) => {
 
 const addRecipeCommentById = async ({ recipeID, content }) => {
   try {
-    const { data } = await axios.post(
+    const { data } = await axios.put(
       `http://localhost:5000/api/recipes/comments/${recipeID}`,
       content,
       config
     )
-
     return data
   } catch (error) {
     return error.message

@@ -68,6 +68,8 @@ const login = async (req, res) => {
       httpOnly: true,
     })
 
+    console.log(res.cookie.userId)
+
     const token = generateToken(user.id)
 
     res.status(200).json(user[0])

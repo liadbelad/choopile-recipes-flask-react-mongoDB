@@ -12,13 +12,13 @@ const RecipeItem = ({ recipe }) => {
   const { pathname } = useLocation()
 
   const handleViewsIncrement = () => {
-    updateRecipeViewsById(recipe.id)
+    updateRecipeViewsById(recipe._id.$oid)
   }
 
   const moveToEditRecipePage = () => {
     history.push({
       pathname: "/recipes/edit/details",
-      state: { recipeId: recipe.id },
+      state: { recipeId: recipe._id.$oid },
     })
   }
 
@@ -28,7 +28,7 @@ const RecipeItem = ({ recipe }) => {
       className={styles["recipe-item"]}
       border="light"
     >
-      <Link to={`/recipes/${recipe?.id}`}>
+      <Link to={`/recipes/${recipe?._id.$oid}`}>
         <Card.Img
           variant="top"
           className={styles["recipe-img"]}
@@ -46,7 +46,7 @@ const RecipeItem = ({ recipe }) => {
         <Card.Title
           className="text-dark font-weight-bold"
           as={Link}
-          to={`/recipes/${recipe.id}`}
+          to={`/recipes/${recipe._id.$oid}`}
         >
           {recipe.title}
         </Card.Title>

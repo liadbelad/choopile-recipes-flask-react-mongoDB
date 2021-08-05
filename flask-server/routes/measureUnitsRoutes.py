@@ -3,7 +3,8 @@ from bson.json_util import dumps
 from flask import Blueprint, Response
 from pymongo import MongoClient
 
-client = MongoClient('mongodb://localhost:27017/')
+client = MongoClient(
+    'mongodb+srv://liadb13:n9A3wDlExLxzYqtx@cluster0.b64x1.mongodb.net/choopile?retryWrites=true&w=majority')
 db = client.choopile
 
 measureUnit = Blueprint('measureUnit', __name__,
