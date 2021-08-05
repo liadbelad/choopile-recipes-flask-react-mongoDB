@@ -30,24 +30,72 @@ const AuthContextProvider = ({ children }) => {
   const handleAddRecipeIngredients = (newRecipeIngredients) => {
     setRecipeIngredients(newRecipeIngredients)
 
-    const transformedRecipeIngredients = newRecipeIngredients.map(
-      (ingredientData) => {
-        return {
-          action: ingredientData.action || null,
-          amount: ingredientData.qty,
-          measureUnitId: ingredientData.measureUnit.value,
-          ingredientId: ingredientData.ingredient.value,
-          title: ingredientData.title || "",
-          note: ingredientData.note || "",
-          recipeIngredientId: ingredientData.recipeIngredientId || null,
-        }
+    console.log(newRecipeIngredients)
+
+    // const transformedRecipeIngredients = newRecipeIngredients.map(
+    //   (ingredientData) => {
+    //     return {
+    //       action: ingredientData.action || null,
+    //       amount: ingredientData.qty,
+    //       measureUnitId: ingredientData.measureUnit.value,
+    //       ingredientId: ingredientData.ingredient.value,
+    //       title: ingredientData.title || "",
+    //       note: ingredientData.note || "",
+    //       recipeIngredientId: ingredientData.recipeIngredientId || null,
+    //     }
+    //   }
+    // )
+
+    const findIngredientsOfTitle = (ingredientsByTitle, title) => {
+      return ingredientsByTitle.find(
+        ({ title: titleToFind }) => titleToFind === title
+      )
+    }
+
+    const ingredientTitles = {}
+    const ingredientsByTitle = []
+    for (const {
+      title,
+      qty: amount,
+      measureUnit,
+      ingredient,
+      note,
+    } of newRecipeIngredients) {
+      if (title in ingredientTitles) {
+        const ingredientsTitleCurrent = findIngredientsOfTitle(
+          ingredientsByTitle,
+          title
+        )
+
+        const { ingredients } = ingredientsTitleCurrent
+        ingredients.push({
+          ingredient,
+          measureUnit,
+          amount,
+          note,
+        })
+        continue
       }
-    )
+      ingredientTitles[title] = title
+      ingredientsByTitle.push({
+        title,
+        ingredients: [
+          {
+            ingredient,
+            measureUnit,
+            amount,
+            note,
+          },
+        ],
+      })
+    }
+
+    console.log(ingredientsByTitle)
 
     addNewArrayDataToFormData(
       fullRecipeData,
-      "ingredients",
-      transformedRecipeIngredients
+      "ingredientsByTitle",
+      ingredientsByTitle
     )
     localStorage.setItem(
       "recipeIngredients",

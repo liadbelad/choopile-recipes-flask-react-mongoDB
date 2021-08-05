@@ -1,18 +1,12 @@
 import axios from "axios"
-
-const config = {
-  headers: {
-    "Content-Type": "application/json",
-  },
-  withCredentials: true,
-}
+import { CONFIG } from "../utills/js/constants"
 
 export const updateUserDetails = async (newUserDetails) => {
   try {
     const { data } = await axios.put(
       `http://localhost:5000/api/users`,
       newUserDetails,
-      config
+      CONFIG
     )
     return data
   } catch (error) {
@@ -22,7 +16,7 @@ export const updateUserDetails = async (newUserDetails) => {
 
 export const getUserDetails = async () => {
   try {
-    const { data } = await axios.get(`http://localhost:5000/api/users`, config)
+    const { data } = await axios.get(`http://localhost:5000/api/users`, CONFIG)
     return data
   } catch (error) {
     return error.response.data.message

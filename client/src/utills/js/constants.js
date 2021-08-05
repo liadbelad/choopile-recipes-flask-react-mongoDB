@@ -34,6 +34,14 @@ const CUSTOM_SELECT_STYLES = {
   },
 }
 
+const CONFIG = {
+  headers: {
+    "Content-Type": "application/json",
+    "Access-Control-Allow-Credentials": true,
+  },
+  // withCredentials: true,
+}
+
 // password regex Description
 // ^	The password string will start this way
 // (?=.*[a-z])	The string must contain at least 1 lowercase alphabetical character
@@ -51,4 +59,5 @@ export {
   SUPPORTED_FILE_FORMATS,
   FILE_SIZE,
   CUSTOM_SELECT_STYLES,
+  CONFIG,
 }

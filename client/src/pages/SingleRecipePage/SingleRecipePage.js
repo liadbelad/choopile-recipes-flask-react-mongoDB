@@ -40,9 +40,11 @@ const SingleRecipePage = () => {
     )
   }
 
-  if (!id || !recipe?.id) {
+  if (!id || !recipe?._id) {
     return <ErrorPage />
   }
+
+  console.log(recipe)
 
   return (
     <>

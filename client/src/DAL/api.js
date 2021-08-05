@@ -1,13 +1,5 @@
 import axios from "axios"
-axios.defaults.withCredentials = true
-
-const config = {
-  headers: {
-    "Content-Type": "application/json",
-    "Access-Control-Allow-Credentials": true,
-  },
-  // withCredentials: true,
-}
+import { CONFIG } from "../utills/js/constants"
 
 const DUMMY_USERS = [
   {
@@ -36,7 +28,6 @@ const DUMMY_USERS = [
 const getSessionFromServer = async () => {
   try {
     const { data } = await axios.get("http://localhost:5000/api/users/login")
-    console.log(data)
     return data
   } catch (error) {
     return error.message
@@ -48,7 +39,7 @@ const login = async (loginUser) => {
     const { data: userInfo } = await axios.post(
       "http://localhost:5000/api/users/login",
       loginUser,
-      config
+      CONFIG
     )
 
     return {
@@ -106,7 +97,7 @@ const getUserRecipes = async ({
   try {
     const { data: userRecipes } = await axios(
       `http://localhost:5000/api/recipes/users?pageNumber=${pageNumber}&category=${categoryID} `,
-      config
+      CONFIG
     )
     return userRecipes
   } catch (error) {
@@ -183,6 +174,7 @@ const getFullRecipeDetailsByID = async (id) => {
   try {
     const response = await fetch(`http://localhost:5000/api/recipes/${id}`)
     const recipe = await response.json()
+
     if (!recipe) throw new Error("recipe not found")
     return recipe
   } catch (error) {

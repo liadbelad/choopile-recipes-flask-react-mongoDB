@@ -17,8 +17,6 @@ const NewRecipeInstructionsPage = () => {
   const [editInstruction, setEditInstruction] = useState("")
   const [editIdx, setEditIdx] = useState()
 
-  console.log(isEditingInstruction)
-
   const { isLoggedIn } = useContext(AuthContext)
 
   const storedUserInfo = JSON.parse(localStorage.getItem("userInfo"))

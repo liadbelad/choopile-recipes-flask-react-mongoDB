@@ -1,12 +1,5 @@
 import axios from "axios"
-
-const config = {
-  headers: {
-    "Content-Type": "application/json",
-    "Access-Control-Allow-Credentials": true,
-  },
-  // withCredentials: true,
-}
+import { CONFIG } from "../utills/js/constants"
 
 const getNewestRecipes = async (pageNumber = 1) => {
   try {
@@ -52,7 +45,7 @@ const addNewRecipe = async (newRecipe) => {
     const { data } = await axios.post(
       `http://localhost:5000/api/recipes/add`,
       newRecipe,
-      config
+      CONFIG
     )
     return data
   } catch (error) {
@@ -91,7 +84,7 @@ const addRecipeCommentById = async ({ recipeID, content }) => {
     const { data } = await axios.put(
       `http://localhost:5000/api/recipes/comments/${recipeID}`,
       content,
-      config
+      CONFIG
     )
     return data
   } catch (error) {
